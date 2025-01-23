@@ -58,16 +58,19 @@ public class paysage extends Application {
         gc.setFill(Color.SADDLEBROWN);
         gc.fillRect(x - 10, y - 100, 20, 100);
 
-        // Dessiner les feuilles
+        // Dessiner les feuilles du papayer
         gc.setFill(Color.DARKGREEN);
         for (int i = 0; i < 6; i++) {
             double angle = i * 60;
-            double leafX = x + 50 * Math.cos(Math.toRadians(angle));
-            double leafY = y - 100 + 50 * Math.sin(Math.toRadians(angle));
+            double leafBaseX = x + 30 * Math.cos(Math.toRadians(angle));
+            double leafBaseY = y - 100 + 30 * Math.sin(Math.toRadians(angle));
             gc.beginPath();
-            gc.moveTo(x, y - 100);
-            gc.lineTo(leafX, leafY);
-            gc.arcTo(leafX, leafY, x, y - 100, 20);
+            gc.moveTo(x, y - 100); // Centre où les feuilles se rejoignent
+            gc.bezierCurveTo(
+                    x, y - 150,          // Contrôle supérieur (courbe vers le haut)
+                    leafBaseX, leafBaseY, // Contrôle extérieur (étendre la feuille)
+                    x, y - 100           // Retour au centre
+            );
             gc.closePath();
             gc.fill();
         }
