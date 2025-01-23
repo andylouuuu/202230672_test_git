@@ -42,12 +42,41 @@ public class paysage extends Application {
         gc.setFill(Color.GREEN);
         gc.fillRect(0, 400, 800, 200);
 
+        // Dessiner un papayer
+        drawPapayaTree(gc, 600, 450);
+
         Group root = new Group();
         root.getChildren().add(canvas);
         Scene scene = new Scene(root, 800, 600);
 
         primaryStage.setScene(scene);
         primaryStage.show();
+    }
+
+    private void drawPapayaTree(GraphicsContext gc, double x, double y) {
+        // Dessiner le tronc
+        gc.setFill(Color.SADDLEBROWN);
+        gc.fillRect(x - 10, y - 100, 20, 100);
+
+        // Dessiner les feuilles
+        gc.setFill(Color.DARKGREEN);
+        for (int i = 0; i < 6; i++) {
+            double angle = i * 60;
+            double leafX = x + 50 * Math.cos(Math.toRadians(angle));
+            double leafY = y - 100 + 50 * Math.sin(Math.toRadians(angle));
+            gc.beginPath();
+            gc.moveTo(x, y - 100);
+            gc.lineTo(leafX, leafY);
+            gc.arcTo(leafX, leafY, x, y - 100, 20);
+            gc.closePath();
+            gc.fill();
+        }
+
+        // Ajouter des fruits
+        gc.setFill(Color.ORANGE);
+        gc.fillOval(x - 15, y - 130, 10, 10);
+        gc.fillOval(x + 5, y - 120, 10, 10);
+        gc.fillOval(x - 5, y - 110, 10, 10);
     }
 
     public static void main(String[] args) {
