@@ -6,6 +6,7 @@ import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 public class paysage extends Application {
@@ -44,6 +45,10 @@ public class paysage extends Application {
 
         // Dessiner un papayer
         drawPapayaTree(gc, 600, 450);
+
+
+        // Dessiner une fille qui dit "Bonjour, je suis Anabelle"
+        drawAnabelle(gc, 200, 450);
 
         Group root = new Group();
         root.getChildren().add(canvas);
@@ -131,6 +136,32 @@ public class paysage extends Application {
         gc.strokeLine(310, 455, 310, 470); // Tige 4
         gc.strokeLine(410, 475, 410, 490); // Tige 5
         gc.strokeLine(510, 465, 510, 480); // Tige 6
+    }
+
+    private void drawAnabelle(GraphicsContext gc, double x, double y) {
+        // Dessiner la tête
+        gc.setFill(Color.PEACHPUFF);
+        gc.fillOval(x - 15, y - 50, 30, 30);
+
+        // Dessiner le corps
+        gc.setFill(Color.LIGHTPINK);
+        gc.fillRect(x - 10, y - 20, 20, 40);
+
+        // Dessiner les bras
+        gc.setStroke(Color.PEACHPUFF);
+        gc.setLineWidth(5);
+        gc.strokeLine(x - 10, y, x - 30, y + 20); // Bras gauche
+        gc.strokeLine(x + 10, y, x + 30, y + 20); // Bras droit
+
+        // Dessiner les jambes
+        gc.setStroke(Color.PEACHPUFF);
+        gc.strokeLine(x - 5, y + 20, x - 10, y + 40); // Jambe gauche
+        gc.strokeLine(x + 5, y + 20, x + 10, y + 40); // Jambe droite
+
+        // Ajouter le texte "Bonjour, je suis Anabelle"
+        gc.setFill(Color.BLACK);
+        gc.setFont(new Font("Arial", 16));
+        gc.fillText("Bonjour, je suis Anabelle", x - 80, y - 60);
     }
 
     public static void main(String[] args) {
