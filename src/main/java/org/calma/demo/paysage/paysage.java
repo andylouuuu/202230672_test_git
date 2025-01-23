@@ -1,4 +1,4 @@
-package Paysage;
+package org.calma.demo.paysage;
 
 import javafx.application.Application;
 import javafx.scene.Group;
