@@ -77,6 +77,30 @@ public class paysage extends Application {
         gc.fillOval(x - 15, y - 130, 10, 10);
         gc.fillOval(x + 5, y - 120, 10, 10);
         gc.fillOval(x - 5, y - 110, 10, 10);
+
+        // Dessiner des fleurs
+        drawFlowers(gc);
+    }
+
+    private void drawFlowers(GraphicsContext gc) {
+        // Dessiner quelques fleurs avec une taille augmentée
+        gc.setFill(Color.RED);
+        gc.fillOval(50, 450, 20, 20); // Fleur 1 (taille augmentée)
+        gc.fillOval(70, 460, 20, 20); // Fleur 2 (taille augmentée)
+        gc.fillOval(150, 480, 20, 20); // Fleur 3 (taille augmentée)
+        gc.fillOval(300, 450, 20, 20); // Fleur 4 (taille augmentée)
+        gc.fillOval(400, 470, 20, 20); // Fleur 5 (taille augmentée)
+        gc.fillOval(500, 460, 20, 20); // Fleur 6 (taille augmentée)
+
+        // Dessiner les tiges des fleurs
+        gc.setStroke(Color.GREEN);
+        gc.setLineWidth(2);
+        gc.strokeLine(60, 455, 60, 470); // Tige 1
+        gc.strokeLine(80, 465, 80, 480); // Tige 2
+        gc.strokeLine(160, 485, 160, 500); // Tige 3
+        gc.strokeLine(310, 455, 310, 470); // Tige 4
+        gc.strokeLine(410, 475, 410, 490); // Tige 5
+        gc.strokeLine(510, 465, 510, 480); // Tige 6
     }
 
     public static void main(String[] args) {
