@@ -7,7 +7,6 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class paysage extends Application {
@@ -44,8 +43,17 @@ public class paysage extends Application {
         gc.setFill(Color.GREEN);
         gc.fillRect(0, 400, 800, 200);
 
+        // Dessiner un lac
+        drawLake(gc);
+
         // Dessiner un papayer
         drawPapayaTree(gc, 600, 450);
+
+        // Ajouter une fille qui dit "Bonjour, je suis Annabelle"
+        drawAnnabelle(gc, 150, 450);
+
+        // Dessiner une maison
+        drawHouse(gc, 300, 350);
 
         // Ajouter un texte de bienvenue
         addWelcomeText(gc);
@@ -85,12 +93,33 @@ public class paysage extends Application {
         gc.fillOval(x - 15, y - 130, 10, 10);
         gc.fillOval(x + 5, y - 120, 10, 10);
         gc.fillOval(x - 5, y - 110, 10, 10);
+    }
 
-        // Dessiner des fleurs
-        drawFlowers(gc);
+    private void drawLake(GraphicsContext gc) {
+        gc.setFill(Color.BLUE);
+        gc.fillOval(400, 450, 300, 100); // Dessine un lac ovale
+    }
 
-        // Dessiner une maison
-        drawHouse(gc, 300, 350);
+    private void drawAnnabelle(GraphicsContext gc, double x, double y) {
+        // Dessiner le corps
+        gc.setFill(Color.PEACHPUFF);
+        gc.fillOval(x, y - 30, 20, 20); // Tête
+        gc.setFill(Color.BLUE);
+        gc.fillRect(x - 5, y - 10, 30, 40); // Corps
+        gc.setFill(Color.BLACK);
+        gc.fillRect(x - 10, y + 30, 10, 30); // Jambe gauche
+        gc.fillRect(x + 10, y + 30, 10, 30); // Jambe droite
+
+        // Ajouter les bras
+        gc.setStroke(Color.PEACHPUFF);
+        gc.setLineWidth(5);
+        gc.strokeLine(x - 10, y, x - 30, y + 20); // Bras gauche
+        gc.strokeLine(x + 30, y, x + 50, y + 20); // Bras droit
+
+        // Ajouter le texte
+        gc.setFill(Color.BLACK);
+        gc.setFont(Font.font("Arial", 14));
+        gc.fillText("Bonjour, je suis Annabelle", x - 50, y - 40);
     }
 
     private void drawHouse(GraphicsContext gc, double x, double y) {
@@ -115,27 +144,6 @@ public class paysage extends Application {
         gc.setFill(Color.LIGHTBLUE);
         gc.fillRect(x + 10, y + 20, 30, 30);
         gc.fillRect(x + 60, y + 20, 30, 30);
-    }
-
-    private void drawFlowers(GraphicsContext gc) {
-        // Dessiner quelques fleurs avec une taille augmentée
-        gc.setFill(Color.RED);
-        gc.fillOval(50, 460, 20, 20); // Fleur 1 (taille augmentée)
-        gc.fillOval(70, 460, 20, 20); // Fleur 2 (taille augmentée)
-        gc.fillOval(150, 480, 20, 20); // Fleur 3 (taille augmentée)
-        gc.fillOval(300, 450, 20, 20); // Fleur 4 (taille augmentée)
-        gc.fillOval(400, 470, 20, 20); // Fleur 5 (taille augmentée)
-        gc.fillOval(500, 460, 20, 20); // Fleur 6 (taille augmentée)
-
-        // Dessiner les tiges des fleurs
-        gc.setStroke(Color.GREEN);
-        gc.setLineWidth(2);
-        gc.strokeLine(60, 455, 60, 470); // Tige 1
-        gc.strokeLine(80, 465, 80, 480); // Tige 2
-        gc.strokeLine(160, 485, 160, 500); // Tige 3
-        gc.strokeLine(310, 455, 310, 470); // Tige 4
-        gc.strokeLine(410, 475, 410, 490); // Tige 5
-        gc.strokeLine(510, 465, 510, 480); // Tige 6
     }
 
     private void addWelcomeText(GraphicsContext gc) {
