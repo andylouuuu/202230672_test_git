@@ -112,7 +112,7 @@ public class paysage extends Application {
     private void drawFlowers(GraphicsContext gc) {
         // Dessiner quelques fleurs avec une taille augmentée
         gc.setFill(Color.RED);
-        gc.fillOval(50, 450, 20, 20); // Fleur 1 (taille augmentée)
+        gc.fillOval(50, 460, 20, 20); // Fleur 1 (taille augmentée)
         gc.fillOval(70, 460, 20, 20); // Fleur 2 (taille augmentée)
         gc.fillOval(150, 480, 20, 20); // Fleur 3 (taille augmentée)
         gc.fillOval(300, 450, 20, 20); // Fleur 4 (taille augmentée)
