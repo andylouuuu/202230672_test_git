@@ -6,8 +6,6 @@ import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class paysage extends Application {
@@ -46,9 +44,6 @@ public class paysage extends Application {
 
         // Dessiner un papayer
         drawPapayaTree(gc, 600, 450);
-
-        // Ajouter un texte de bienvenue
-        addWelcomeText(gc);
 
         Group root = new Group();
         root.getChildren().add(canvas);
@@ -136,15 +131,6 @@ public class paysage extends Application {
         gc.strokeLine(310, 455, 310, 470); // Tige 4
         gc.strokeLine(410, 475, 410, 490); // Tige 5
         gc.strokeLine(510, 465, 510, 480); // Tige 6
-    }
-
-    private void addWelcomeText(GraphicsContext gc) {
-        // Définir la couleur et la police du texte
-        gc.setFill(Color.BLACK);
-        gc.setFont(Font.font("Arial", 24));
-
-        // Dessiner le texte de bienvenue
-        gc.fillText("Bienvenue dans le paysage de Andy!", 250, 50);
     }
 
     public static void main(String[] args) {
