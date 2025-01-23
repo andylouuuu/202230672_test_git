@@ -80,6 +80,33 @@ public class paysage extends Application {
 
         // Dessiner des fleurs
         drawFlowers(gc);
+
+        // Dessiner une maison
+        drawHouse(gc, 300, 350);
+    }
+
+    private void drawHouse(GraphicsContext gc, double x, double y) {
+        // Dessiner le corps de la maison
+        gc.setFill(Color.BEIGE);
+        gc.fillRect(x, y, 100, 100);
+
+        // Dessiner le toit
+        gc.setFill(Color.DARKRED);
+        gc.beginPath();
+        gc.moveTo(x, y);
+        gc.lineTo(x + 50, y - 50);
+        gc.lineTo(x + 100, y);
+        gc.closePath();
+        gc.fill();
+
+        // Dessiner la porte
+        gc.setFill(Color.BROWN);
+        gc.fillRect(x + 40, y + 50, 20, 50);
+
+        // Dessiner une fenêtre
+        gc.setFill(Color.LIGHTBLUE);
+        gc.fillRect(x + 10, y + 20, 30, 30);
+        gc.fillRect(x + 60, y + 20, 30, 30);
     }
 
     private void drawFlowers(GraphicsContext gc) {
