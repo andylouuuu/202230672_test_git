@@ -7,4 +7,6 @@ module org.calma.demo {
     exports org.calma.demo;
     exports Paysage;
     opens Paysage to javafx.fxml;
+    exports org.calma.demo.paysage;
+    opens org.calma.demo.paysage to javafx.fxml;
 }
